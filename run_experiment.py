@@ -39,13 +39,13 @@ def run_experiment(args):
         # If threading is required, see the threaded version of this file
         data_dir = "./0_Datasets/ordinal-regression/"
         results_dir = "./results/"
-        estimator_name = "logisticregressor"
-        # estimator_name = "logisticat"
+        #estimator_name = "logisticregressor"
+        estimator_name = "logisticat"
         # estimator_name = "logisticit"
         # estimator_name = "logisticat_desb"
         # estimator_name = "logisticit_desb"
 
-        dataset = "car"
+        dataset = "tae"
         random_state = 0
         n_jobs = -1
 

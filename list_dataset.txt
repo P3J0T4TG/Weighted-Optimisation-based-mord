@@ -1,23 +1,23 @@
 
 		  	LogisticRegressor			LogisticAT				LogisticIT	
 ----------------+--------------------------------+--------------------------------------+-----------------------------------+
-automobile	| DONE, warnings		 | DONE, amae falla	x/0		| DONE, amae falla x/0
-contact-lenses	| DONE, perfe 			 | DONE, amae falla	x/0		| DONE, amae falla x/0	
-LEV		| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0
-squash-unstored	| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0   ---------------------------------> AMAE Y MMAE comentados en experiments.py
-winequality-red	| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0    --->¿XQ SIGUE SALIENDO EL WARNING DE AMAE?
-balance-scale	| DONE, perfe			 | DONE, amae falla x/0	+ etiquetas mal	| DONE, amae falla x/0	+ etiquetas mal
-ERA		| DONE, lbfgs no converge	 | DONE, amae falla x/0	+ etiquetas mal	| DONE, amae falla x/0	+ etiquetas mal
-newthyroid	| DONE, lbfgs no converge	 | DONE, amae falla x/0	+ falla cm	| DONE, amae falla x/0	+ falla cm
-SWD		| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0 
-bondrate	| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0 
-ESL		| DONE, same as automobile	 | DONE, amae falla 	x/0		| DONE, amae falla x/0 
-pasture		| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0 
-tae		| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0 
-car		| DONE, lbfgs no converge	 | DONE, amae falla x/0	+ single label	| DONE, amae falla x/0 + negative dimensions
-eucalyptus	| DONE, lbfgs no converge	 | DONE, amae falla x/0	+ etiquetas mal	| DONE, amae falla x/0	+ etiquetas mal
-squash-stored	| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0 
-toy		| DONE, perfe 			 | DONE, amae falla	x/0		| DONE, amae falla x/0	
+automobile		| DONE, warnings			 	| DONE, amae falla	x/0					| DONE, amae falla x/0
+contact-lenses	| DONE, perfe 				 	| DONE, amae falla	x/0					| DONE, amae falla x/0	
+LEV				| DONE, lbfgs no converge	 	| DONE, amae falla 	x/0					| DONE, amae falla x/0
+squash-unstored	| DONE, lbfgs no converge	 	| DONE, amae falla 	x/0					| DONE, amae falla x/0   ---------------------------------> AMAE Y MMAE comentados en experiments.py
+winequality-red	| DONE, lbfgs no converge	 	| DONE, amae falla 	x/0					| DONE, amae falla x/0    --->¿XQ SIGUE SALIENDO EL WARNING DE AMAE?
+balance-scale	| DONE, perfe				 	| DONE, amae falla x/0	+ etiquetas mal	| DONE, amae falla x/0	+ etiquetas mal
+ERA				| DONE, lbfgs no converge	 	| DONE, amae falla x/0	+ etiquetas mal	| DONE, amae falla x/0	+ etiquetas mal
+newthyroid		| DONE, lbfgs no converge	 	| DONE, amae falla x/0	+ falla cm		| DONE, amae falla x/0	+ falla cm
+SWD				| DONE, lbfgs no converge	 	| DONE, amae falla 	x/0					| DONE, amae falla x/0 
+bondrate		| DONE, lbfgs no converge	 	| DONE, amae falla 	x/0					| DONE, amae falla x/0 
+ESL				| DONE, same as automobile	 	| DONE, amae falla 	x/0					| DONE, amae falla x/0 
+pasture			| DONE, lbfgs no converge	 	| DONE, amae falla 	x/0					| DONE, amae falla x/0 
+tae				| DONE, lbfgs no converge	 	| DONE, amae falla 	x/0					| DONE, amae falla x/0 
+car				| DONE, lbfgs no converge	 	| DONE, amae falla x/0	+ single label	| DONE, amae falla x/0 + negative dimensions
+eucalyptus		| DONE, lbfgs no converge	 	| DONE, amae falla x/0	+ etiquetas mal	| DONE, amae falla x/0	+ etiquetas mal
+squash-stored	| DONE, lbfgs no converge	 	| DONE, amae falla 	x/0					| DONE, amae falla x/0 
+toy				| DONE, perfe 				 	| DONE, amae falla	x/0					| DONE, amae falla x/0	
 ----------------+--------------------------------+-------------------------------------+-----------------------------------+
 
 
