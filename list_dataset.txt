@@ -1,0 +1,77 @@
+
+		  	LogisticRegressor			LogisticAT				LogisticIT	
+----------------+--------------------------------+--------------------------------------+-----------------------------------+
+automobile	| DONE, warnings		 | DONE, amae falla	x/0		| DONE, amae falla x/0
+contact-lenses	| DONE, perfe 			 | DONE, amae falla	x/0		| DONE, amae falla x/0	
+LEV		| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0
+squash-unstored	| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0   ---------------------------------> AMAE Y MMAE comentados en experiments.py
+winequality-red	| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0    --->¿XQ SIGUE SALIENDO EL WARNING DE AMAE?
+balance-scale	| DONE, perfe			 | DONE, amae falla x/0	+ etiquetas mal	| DONE, amae falla x/0	+ etiquetas mal
+ERA		| DONE, lbfgs no converge	 | DONE, amae falla x/0	+ etiquetas mal	| DONE, amae falla x/0	+ etiquetas mal
+newthyroid	| DONE, lbfgs no converge	 | DONE, amae falla x/0	+ falla cm	| DONE, amae falla x/0	+ falla cm
+SWD		| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0 
+bondrate	| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0 
+ESL		| DONE, same as automobile	 | DONE, amae falla 	x/0		| DONE, amae falla x/0 
+pasture		| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0 
+tae		| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0 
+car		| DONE, lbfgs no converge	 | DONE, amae falla x/0	+ single label	| DONE, amae falla x/0 + negative dimensions
+eucalyptus	| DONE, lbfgs no converge	 | DONE, amae falla x/0	+ etiquetas mal	| DONE, amae falla x/0	+ etiquetas mal
+squash-stored	| DONE, lbfgs no converge	 | DONE, amae falla 	x/0		| DONE, amae falla x/0 
+toy		| DONE, perfe 			 | DONE, amae falla	x/0		| DONE, amae falla x/0	
+----------------+--------------------------------+-------------------------------------+-----------------------------------+
+
+
+				#############
+				# PROBLEMAS #
+				#############
+					
+					*AUTOMOBILE
+						->LogisticRegressor:
+							-La clase menos poblada en y tiene solo 1 miembro, lo cual es menos que n_splits=3
+							-lbfgs no logró converger (estado=1). 
+							-Se encontró un valor inválido en la división. Esto sugiere que estás intentando dividir por cero o por un valor NaN
+						->LogisticAT:
+							-invalid value encountered in divide
+						->LogisticIT:
+							-invalid value encountered in divide
+							
+					*BALANCE-SCALE:
+						->LogisticAT & LogisticIT
+							- amae divide por cero
+							- ValueError: Values in y must be [0 1], instead got [0 2]
+							
+		
+					*ERA:
+						->LogisticRegressor
+							-lbfgs no logró converger (estado=1). 
+						->LogisticAT & LogisticIT
+							- amae divide por cero
+							- ValueError: Values in y must be [0 1 2 3 4 5 6 7], instead got [0 1 2 4 5 6 7 8]
+							
+					*NEW-THYROID:
+						->LogisticRegressor:
+							-lbfgs no converge					
+						->LogisticAT & LogisticIT:
+							- amae divide por cero
+							- /home/p3j0t4/0.Asignaturas/00._TFM/TFM_env/lib/python3.10/site-packages/sklearn/metrics/_classification.py:386: UserWarning: A single label was found in 'y_true' and 'y_pred'. For the confusion matrix to have the correct shape, use the 'labels' parameter to pass all known labels.
+							
+							
+							
+					*CAR:
+						->LogisticRegresor
+							-lbfgs no converge
+						->LogisticAT
+							-amae falla
+							-  A single label was found in 'y_true' and 'y_pred'.
+						->LogisticIT
+							- amae divide por cero
+							- ValueError: negative dimensions are not allowed en libreria joblib/parallel.py	
+							
+					*EUCALYPTUS:
+						->LogisticRegressor
+							-lbfgs no logró converger (estado=1). 
+						->LogisticAT & LogisticIT
+							- amae divide por cero
+							- ValueError: Values in y must be [0 1 2 3], instead got [0 1 3 4]
+							
+							
