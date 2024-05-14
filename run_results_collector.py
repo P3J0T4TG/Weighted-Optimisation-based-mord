@@ -27,7 +27,23 @@ filter_methods = [
     # "logisticit_desb",
 ]
 filter_datasets = [
+    "automobile",
+    "balance-scale",
+    "bondrate",
+    "car",
+    "contact-lenses",
+    "ERA",
+    "ESL",
+    "eucalyptus",
+    "LEV",
+    "newthyroid",
+    "pasture",
+    "squash-stored",
+    "squash-unstored",
+    "SWD",
+    "tae",
     "toy",
+    "winequality-red"
 ]
 
 
