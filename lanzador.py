@@ -3,9 +3,7 @@ Script para lanzar todos los experimentos de una
 """
 
 import os
-import sys
 
-from imbalance.utils import load_and_run_experiment
 from run_experiment import run_experiment
 
 estimator_names = ["logisticit", "logisticat", "logisticregressor"]

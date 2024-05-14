@@ -31,6 +31,7 @@ share/python-wheels/
 
 # full set of results
 results/
+*.zip
 
 
 # PyInstaller

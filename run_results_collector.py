@@ -65,7 +65,7 @@ df.sort_values(by=["dataset", "estimator_name", "random_state"], inplace=True)
 #     df = df[df["dataset"].isin(filter_datasets)]
 
 # check that there is the same number of experiments per dataset and estimator
-# group_columns = ["estimator_name"]
+group_columns = ["estimator_name"]
 
 # df_resamples = df[config_columns_to_include].groupby(group_columns)
 # df_resamples_count = df_resamples.count()
