@@ -1,22 +1,22 @@
-|		        |    	LogisticRegressor	                        |	        LogisticAT		            |    		LogisticIT	        
-----------------+---------------------------------------------------+---------------------------------------+-----------------------------------+
-automobile	~	| DONE, patrones<split, amaes x/0, no convergencia  | DONE, patrones<split, amaes x/0   	| DONE, patrones<split, amaes x/0
-contact-lenses ~| DONE, no errores                        	        | DONE, no errores                     	| DONE, no errores
-LEV		~		| DONE, no errores                           	 	| DONE, no errores                 		| DONE, no errores
-squash-unstored~| DONE, no convergencia                      	 	| DONE, no errores                     	| DONE, no errores
-winequality-red~| DONE, no convergencia                           	| DONE, no errores                     	| DONE, no errores
-balance-scale ~	| DONE, no errores                           	 	| DONE, no errores                 		| DONE, no errores
-ERA	~			| DONE, no convergencia                          	| DONE, no errores                 		| DONE, no errores
-newthyroid ~	| DONE, no errores (algunos resamples no convergen) | DONE, no errores                 		| DONE, no errores
-SWD		~		| DONE, no errores                           	 	| DONE, no errores                 		| DONE, no errores
-bondrate		| DONE, patrones<split, amaes x/0                 	| DONE, patrones<split, errores sklearn, joblib y etiquetas	| Same as LogisticAT ---> No pasa los lanzamientos en bateria por el error descrito 
-ESL		~		| DONE, patrones<split, amaes x/0, no convergencia  | DONE, patrones<split, amaes x/0   	| DONE, patrones<split, amaes x/0   
-pasture	~   	| DONE, no errores (algunos resamples no convergen) | DONE, no errores                 		| DONE, no errores
-tae		~		| DONE, no convergencia                           	| DONE, no errores                     	| DONE, no errores
-car		~		| DONE, no errores                           	 	| DONE, no errores                 		| DONE, no errores
-eucalyptus ~    | DONE, no convergencia                      	 	| DONE, no errores                 		| DONE, no errores
-squash-stored~	| DONE, no convergencia                      	 	| DONE, no errores                 		| DONE, no errores
-toy		~		| DONE, no errores                           	 	| DONE, no errores                 		| DONE, no errores
+|		        |    	      LogisticRegressor	                  	|	        LogisticAT		|    	LogisticIT	        
+------------------------+-------------------------------------------------------+---------------------------------------+-----------------------------------+
+automobile	~	| DONE, patrones<split, amaes x/0, no convergencia  	| DONE, patrones<split, amaes x/0   	| DONE, patrones<split, amaes x/0
+contact-lenses ~	| DONE, no errores                        	    	| DONE, no errores                    	| DONE, no errores
+LEV		~	| DONE, no errores                           	 	| DONE, no errores                 	| DONE, no errores
+squash-unstored~	| DONE, no convergencia                      	 	| DONE, no errores                     	| DONE, no errores
+winequality-red~	| DONE, no convergencia                           	| DONE, no errores                     	| DONE, no errores
+balance-scale ~		| DONE, no errores                           	 	| DONE, no errores                 	| DONE, no errores
+ERA	~		| DONE, no convergencia                          	| DONE, no errores                 	| DONE, no errores
+newthyroid ~		| DONE, no errores (algunos resamples no convergen) 	| DONE, no errores                 	| DONE, no errores
+SWD		~	| DONE, no errores                           	 	| DONE, no errores                 	| DONE, no errores
+bondrate		| DONE, patrones<split, amaes x/0                 	| ERROR, patrones<split, errores sklearn, joblib y etiquetas. No pasa los lanzamientos en bateria por el error descrito 
+ESL		~	| DONE, patrones<split, amaes x/0, no convergencia  	| DONE, patrones<split, amaes x/0   	| DONE, patrones<split, amaes x/0   
+pasture	~   		| DONE, no errores (algunos resamples no convergen) 	| DONE, no errores                 	| DONE, no errores
+tae		~	| DONE, no convergencia                           	| DONE, no errores                     	| DONE, no errores
+car		~	| DONE, no errores                           	 	| DONE, no errores                 	| DONE, no errores
+eucalyptus ~    	| DONE, no convergencia                      	 	| DONE, no errores                 	| DONE, no errores
+squash-stored~		| DONE, no convergencia                      	 	| DONE, no errores                 	| DONE, no errores
+toy		~	| DONE, no errores                           	 	| DONE, no errores                 	| DONE, no errores
 ----------------+-------------------------------+---------------------------------------+-----------------------------------+-
     ~: Experimentos lanzados con todos los resamples
 
