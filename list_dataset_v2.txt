@@ -13,8 +13,8 @@ bondrate		| DONE, patrones<split, amaes x/0                 	| DONE, patrones<sp
 ESL		~		| DONE, patrones<split, amaes x/0, no convergencia  | DONE, patrones<split, amaes x/0   	| DONE, patrones<split, amaes x/0   
 pasture	~   	| DONE, no errores (algunos resamples no convergen) | DONE, no errores                 		| DONE, no errores
 tae		~		| DONE, no convergencia                           	| DONE, no errores                     	| DONE, no errores
-car				| DONE, no errores                           	 	| DONE, no errores                 		| DONE, no errores
-eucalyptus		| DONE, no errores                           	 	| DONE, no errores                 		| DONE, no errores
+car		~		| DONE, no errores                           	 	| DONE, no errores                 		| DONE, no errores
+eucalyptus ~    | DONE, no convergencia                      	 	| DONE, no errores                 		| DONE, no errores
 squash-stored~	| DONE, no convergencia                      	 	| DONE, no errores                 		| DONE, no errores
 toy				| DONE, no errores                           	 	| DONE, no errores                 		| DONE, no errores
 ----------------+-------------------------------+---------------------------------------+-----------------------------------+

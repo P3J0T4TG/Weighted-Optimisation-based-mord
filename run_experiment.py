@@ -39,17 +39,18 @@ def run_experiment(args):
         # If threading is required, see the threaded version of this file
         data_dir = "./0_Datasets/ordinal-regression/"
         results_dir = "./results/"
-        #estimator_name = "logisticregressor"
-        estimator_name = "logisticat"
-        # estimator_name = "logisticit"
+        estimator_name = "logisticregressor"
+        #estimator_name = "logisticat"
+        #estimator_name = "logisticit"
+
         # estimator_name = "logisticat_desb"
         # estimator_name = "logisticit_desb"
 
-        dataset = "tae"
+        dataset = "toy"
         random_state = 0
         n_jobs = -1
 
-        print(f"Local Run of {estimator_name}.")
+        print(f"Local Run of {estimator_name}. Dataset: {dataset}")
 
         load_and_run_experiment(
             data_dir,
@@ -58,7 +59,7 @@ def run_experiment(args):
             random_state=random_state,
             estimator_name=estimator_name,
             n_jobs=n_jobs,
-            interactive=True,
+            interactive=False,
         )
 
 
