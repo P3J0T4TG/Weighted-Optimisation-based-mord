@@ -16,7 +16,7 @@ tae		~		| DONE, no convergencia                           	| DONE, no errores   
 car		~		| DONE, no errores                           	 	| DONE, no errores                 		| DONE, no errores
 eucalyptus ~    | DONE, no convergencia                      	 	| DONE, no errores                 		| DONE, no errores
 squash-stored~	| DONE, no convergencia                      	 	| DONE, no errores                 		| DONE, no errores
-toy				| DONE, no errores                           	 	| DONE, no errores                 		| DONE, no errores
+toy		~		| DONE, no errores                           	 	| DONE, no errores                 		| DONE, no errores
 ----------------+-------------------------------+---------------------------------------+-----------------------------------+
     ~: Experimentos lanzados con todos los resamples
 
