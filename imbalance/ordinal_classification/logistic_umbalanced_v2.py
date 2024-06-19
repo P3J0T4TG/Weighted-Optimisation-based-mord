@@ -20,8 +20,13 @@ def compute_class_weights(y):
     #  Convertir los pesos de las clases a un diccionario
     class_weights_dict = {classes[i]: class_weights[i] for i in range(n_classes)}
 
-    #  Devolver los pesos de las clases como un diccionario
-    return class_weights_dict
+    # Calculamos los pesos de las muestras a partir de los pesos de las clases
+    sample_weight = np.ones(n_samples)                  #inicializamos los pesos de las muestras a 1
+    for class_, weight in class_weights_dict.items():   #para cada clase y su peso
+        sample_weight[y == class_] = weight             #asignamos el peso de la clase a las muestras de esa clase
+
+    #  Devolver los pesos de las muestras 
+    return sample_weight, class_weights_dict
 
 
 def sigmoid(t): #NO NECESITA MODIFICACIONES
@@ -136,7 +141,6 @@ def threshold_fit(
     verbose=False,
     tol=1e-12,
     sample_weight=None,
-    class_weight=None,
 ):
     """
     Solve the general threshold-based ordinal regression model
@@ -161,13 +165,6 @@ def threshold_fit(
         )
 
     n_samples, n_features = X.shape
-
-    # Calculamos los pesos de las muestras a partir de los pesos de las clases
-    if class_weight is not None: #si proporcionamos pesos de clase
-        sample_weight = np.ones(n_samples) #inicializamos los pesos de las muestras a 1
-        for class_, weight in class_weight.items(): #para cada clase y su peso
-            sample_weight[y == class_] = weight #asignamos el peso de la clase a las muestras de esa clase
-
 
     # Crea una matriz que se utiliza para convertir entre los parámetros de los umbrales y los parámetros de los márgenes
     L = np.zeros((n_class - 1, n_class - 1))
@@ -250,7 +247,7 @@ def threshold_proba(X, w, theta):
     return np.diff(prob)
 
 
-class LogisticAT_desb(base.BaseEstimator):
+class LogisticAT_desb_v2(base.BaseEstimator):
     """
     Esta clase implementa el modelo de regresión logística ordinal (variante de Todos los Umbrales)
 
@@ -281,7 +278,7 @@ class LogisticAT_desb(base.BaseEstimator):
         self.classes_ = np.unique(y)
         self.n_class_ = self.classes_.max() - self.classes_.min() + 1
         y_tmp = y - y.min()  # necesitamos clases que comiencen en cero
-        self.weight=compute_class_weights(y_tmp) #calculamos los pesos de las clases
+        self.sample_weight, self.weight=compute_class_weights(y_tmp) #calculamos los pesos de las clases
         self.coef_, self.theta_ = threshold_fit(
             X,
             y_tmp,
@@ -290,8 +287,7 @@ class LogisticAT_desb(base.BaseEstimator):
             mode="AE",
             verbose=self.verbose,
             max_iter=self.max_iter,
-            sample_weight=None,
-            class_weight=self.weight, #pasamos los pesos de las clases
+            sample_weight=self.sample_weight,
         )
         return self
 
@@ -306,10 +302,10 @@ class LogisticAT_desb(base.BaseEstimator):
     def score(self, X, y, sample_weight=None):
         # Calcula el error absoluto medio entre las predicciones del modelo y las etiquetas verdaderas `y`
         pred = self.predict(X)
-        return -metrics.mean_absolute_error(pred, y, sample_weight=sample_weight)
+        return -metrics.mean_absolute_error(pred, y, sample_weight=self.sample_weight)
 
 
-class LogisticIT_desb(base.BaseEstimator):
+class LogisticIT_desb_v2(base.BaseEstimator):
     """
     Esta clase implementa el modelo de regresión logística ordinal (variante de Umbral Inmediato).
 
@@ -344,7 +340,7 @@ class LogisticIT_desb(base.BaseEstimator):
         self.classes_ = np.unique(y)
         self.n_class_ = self.classes_.max() - self.classes_.min() + 1
         y_tmp = y - y.min()  # necesitamos clases que comiencen en cero
-        self.weight=compute_class_weights(y_tmp) #calculamos los pesos de las clases
+        self.sample_weight, self.weight=compute_class_weights(y_tmp) #calculamos los pesos de las clases
         self.coef_, self.theta_ = threshold_fit(
             X,
             y_tmp,
@@ -353,8 +349,7 @@ class LogisticIT_desb(base.BaseEstimator):
             mode="0-1",
             verbose=self.verbose,
             max_iter=self.max_iter,
-            sample_weight=sample_weight,
-            class_weight=self.weight, #pasamos los pesos de las clases
+            sample_weight=self.sample_weight,
         )
         return self
 
@@ -369,10 +364,10 @@ class LogisticIT_desb(base.BaseEstimator):
     def score(self, X, y, sample_weight=None):
         # Calcula la precisión entre las predicciones del modelo y las etiquetas verdaderas `y`
         pred = self.predict(X)
-        return metrics.accuracy_score(pred, y, sample_weight=sample_weight)
+        return metrics.accuracy_score(pred, y, sample_weight=self.sample_weight)
 
     
-class LogisticSE_desb(base.BaseEstimator):
+class LogisticSE_desb_v2(base.BaseEstimator):
     """
     Classifier that implements the ordinal logistic model
     (Squared Error variant).
@@ -409,7 +404,7 @@ class LogisticSE_desb(base.BaseEstimator):
         self.classes_ = np.unique(y)
         self.n_class_ = self.classes_.max() - self.classes_.min() + 1
         y_tmp = y - y.min()  # necesitamos clases que comiencen en cero
-        self.weight=compute_class_weights(y_tmp)
+        self.sample_weight, self.weight=compute_class_weights(self.n_class_, y_tmp) #calculamos los pesos de las clases
         self.coef_, self.theta_ = threshold_fit(
             X,
             y_tmp,
@@ -418,8 +413,7 @@ class LogisticSE_desb(base.BaseEstimator):
             mode="SE",
             verbose=self.verbose,
             max_iter=self.max_iter,
-            sample_weight=sample_weight,
-            class_weight=self.weight,
+            sample_weight=self.sample_weight,
         )
         return self
 
@@ -434,4 +428,4 @@ class LogisticSE_desb(base.BaseEstimator):
     def score(self, X, y, sample_weight=None):
         # Calcula el error cuadrado medio entre las predicciones del modelo y las etiquetas verdaderas `y`
         pred = self.predict(X)
-        return -metrics.mean_squared_error(pred, y, sample_weight=sample_weight)
+        return -metrics.mean_squared_error(pred, y, sample_weight=self.sample_weight)

@@ -1,0 +1,1 @@
+-Bondrate falla al calcular pesos, division por cero, seguramente porque no hay elementos de una clase en la particion

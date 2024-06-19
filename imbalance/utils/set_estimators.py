@@ -11,7 +11,9 @@ ORDINAL_CLASSIFIERS = [
     "logisticat",
     "logisticit",
     "logisticat_desb",  # Modificarlas y cuando estén listas meterlas en el pquete mord
-    "logisticit_desb",  # ''        ''
+    "logisticit_desb",
+    "logisticat_desb_v2",  
+    "logisticit_desb_v2",  
 ]
 
 
@@ -73,7 +75,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
             estimator = LogisticIT()
 
         elif estimator_name == "logisticat_desb":
-            from imbalance.ordinal_classification import LogisticAT_desb
+            from imbalance.ordinal_classification.logistic_umbalanced import LogisticAT_desb
 
             param_grid = [
                 {
@@ -85,7 +87,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
             estimator = LogisticAT_desb()
 
         elif estimator_name == "logisticit_desb":
-            from imbalance.ordinal_classification import LogisticIT_desb
+            from imbalance.ordinal_classification.logistic_umbalanced import LogisticIT_desb
 
             param_grid = [
                 {
@@ -95,6 +97,30 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
                 }
             ]
             estimator = LogisticIT_desb()
+
+#V2 DE LAS UMBALANCED
+        elif estimator_name == "logisticat_desb_v2":
+            from imbalance.ordinal_classification.logistic_umbalanced_v2 import LogisticAT_desb_v2
+            param_grid = [
+                {
+                    "alpha": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
+                    "max_iter": [1000, 2000, 3000, 5000],
+                    # Aquí tendrías que poner "class_weight" : ["balanced"]
+                }
+            ]
+            estimator = LogisticAT_desb_v2()
+
+        elif estimator_name == "logisticit_desb_v2":
+            from imbalance.ordinal_classification.logistic_umbalanced_v2 import LogisticIT_desb_v2
+
+            param_grid = [
+                {
+                    "alpha": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
+                    "max_iter": [1000, 2000, 3000, 5000],
+                    # Aquí tendrías que poner "class_weight" : ["balanced"]
+                }
+            ]
+            estimator = LogisticIT_desb_v2()
 
         else:
             raise NotImplementedError(
