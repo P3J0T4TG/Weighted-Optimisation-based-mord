@@ -46,7 +46,7 @@ def run_experiment(args):
         estimator_name = "logisticat_desb_v2"
         # estimator_name = "logisticit_desb"
 
-        dataset = "toy"
+        dataset = "bondrate"
         random_state = 0
         n_jobs = -1
 

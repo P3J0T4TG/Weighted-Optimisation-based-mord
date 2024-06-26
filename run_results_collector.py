@@ -20,36 +20,33 @@ print("Results loaded")
 config_columns_to_include = ["dataset", "estimator_name", "random_state", "estimators"]
 best_params_columns_to_include = ["alpha", "C", "max_iter"]
 filter_methods = [
-    #
     "logisticat",
     "logisticit",
     "logisticregressor",
-    "logisticat_desb",
+    #"logisticat_desb",
     "logisticat_desb_v2",
-    "logisticit_desb",
+    #"logisticit_desb",
     "logisticit_desb_v2",
 ]
 #filter_datasets = ["toy"]
 
 filter_datasets = [
-    "automobile",
+    "automobile", 
     "balance-scale",
-    "bondrate",
-    "car",
-    "contact-lenses",
-    "ERA",
-    "ESL",
-    "eucalyptus",
-    "LEV",
-    "newthyroid",
-    "pasture",
-    "squash-stored",
-    "squash-unstored",
-    "SWD",
-    "tae",
-    "toy",
-    "winequality-red"
-]
+    "car", 
+    "contact-lenses", 
+    "ERA", 
+    "ESL", 
+    "eucalyptus", 
+    "LEV", 
+    "newthyroid", 
+    "pasture", 
+    "squash-stored", 
+    "squash-unstored", 
+    "SWD", 
+    "tae", 
+    "winequality-red"]
+
 
 
 def filter_fn(result):

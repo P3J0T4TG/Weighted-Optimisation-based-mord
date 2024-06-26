@@ -1,6 +1,5 @@
-from sklearn.metrics import make_scorer
+from sklearn.metrics import make_scorer, mean_absolute_error, accuracy_score
 from sklearn.model_selection import GridSearchCV, StratifiedKFold
-
 from imbalance.metrics import amae
 
 NOMINAL_CLASSIFIERS = [
@@ -10,12 +9,13 @@ NOMINAL_CLASSIFIERS = [
 ORDINAL_CLASSIFIERS = [
     "logisticat",
     "logisticit",
-    "logisticat_desb",  # Modificarlas y cuando estén listas meterlas en el pquete mord
-    "logisticit_desb",
+    #"logisticat_desb",  
+    #"logisticit_desb",
     "logisticat_desb_v2",  
     "logisticit_desb_v2",  
 ]
 
+mae=mean_absolute_error
 
 def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
     estimator_name = estimator_name.casefold()
@@ -43,9 +43,9 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
         return GridSearchCV(
             estimator=estimator,
             param_grid=param_grid,
-            scoring=make_scorer(amae, greater_is_better=False),
+            scoring=make_scorer(accuracy_score, greater_is_better=True),
             n_jobs=n_jobs,
-            cv=StratifiedKFold(n_splits=3, shuffle=True, random_state=random_state),
+            cv=StratifiedKFold(n_splits=2, shuffle=True, random_state=random_state),
             error_score="raise",
             **kwargs,
         )
@@ -59,6 +59,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
                 {
                     "alpha": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
                     "max_iter": [1000, 2000, 3000, 5000],
+                    #"class_weight": ["balanced"],
                 }
             ]
             estimator = LogisticAT()
@@ -70,6 +71,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
                 {
                     "alpha": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
                     "max_iter": [1000, 2000, 3000, 5000],
+                    #"class_weight": ["balanced"],
                 }
             ]
             estimator = LogisticIT()
@@ -81,7 +83,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
                 {
                     "alpha": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
                     "max_iter": [1000, 2000, 3000, 5000],
-                    # Aquí tendrías que poner "class_weight" : ["balanced"]
+                    #"class_weight": ["balanced"],
                 }
             ]
             estimator = LogisticAT_desb()
@@ -93,7 +95,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
                 {
                     "alpha": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
                     "max_iter": [1000, 2000, 3000, 5000],
-                    # Aquí tendrías que poner "class_weight" : ["balanced"]
+                    #"class_weight": ["balanced"],
                 }
             ]
             estimator = LogisticIT_desb()
@@ -105,7 +107,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
                 {
                     "alpha": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
                     "max_iter": [1000, 2000, 3000, 5000],
-                    # Aquí tendrías que poner "class_weight" : ["balanced"]
+                    #"class_weight": ["balanced"],
                 }
             ]
             estimator = LogisticAT_desb_v2()
@@ -117,7 +119,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
                 {
                     "alpha": [0.001, 0.01, 0.1, 1, 10, 100, 1000],
                     "max_iter": [1000, 2000, 3000, 5000],
-                    # Aquí tendrías que poner "class_weight" : ["balanced"]
+                    #"class_weight": ["balanced"],
                 }
             ]
             estimator = LogisticIT_desb_v2()
@@ -131,9 +133,9 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
         return GridSearchCV(
             estimator=estimator,
             param_grid=param_grid,
-            scoring=make_scorer(amae, greater_is_better=False),
+            scoring=make_scorer(accuracy_score, greater_is_better=True),
             n_jobs=n_jobs,
-            cv=StratifiedKFold(n_splits=3, shuffle=True, random_state=random_state),
+            cv=StratifiedKFold(n_splits=2, shuffle=True, random_state=random_state),
             error_score="raise",
             **kwargs,
         )
