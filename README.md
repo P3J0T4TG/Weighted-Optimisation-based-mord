@@ -1,10 +1,12 @@
 # 26-06-2024
 - *Tablas.py* Añadido script para extraer las tablas comparativas de los metodos a partir de los resultados
 - Añadidas las tablas extraidas de los resultados
-- Métrica *AMAE* modificada para evitar el error de dividir por cero (se ha añadido al denominador un \epsilon = 10⁻3
+- Métrica *AMAE* modificada para evitar el error de dividir por cero (se ha añadido al denominador un $\epsilon = 10⁻3$
+- Añadido script que extrae los datos de los resultados del review
+- Añadidos csv con MAE, MZE y Time del review (tablas de review: [Ordinal regression methods: survey and experimental study](http://dx.doi.org/10.1109/TKDE.2015.2457911) para compararlas con las generadas)
 
 **Proximos arreglos**
-- Añadir tablas de review: [Ordinal regression methods: survey and experimental study](http://dx.doi.org/10.1109/TKDE.2015.2457911) para compararlas con las generadas
+- Falta unir las tablas para ponerlas bonicas
 - Añadir Script para discretizar datasets de regresión (variable respuesta continua -> discreta)
 - Aplicar la discretización a los datasets
 - Realizar experimentos para estos
