@@ -88,7 +88,7 @@ for i in range(0, len(df_list)):
 #Unimos los dos dataframes
 df_union = pd.concat([df_TFM, df_REVIEW],axis=0, ignore_index=True, sort=False)
 #ordenamos el dataframe por dataset, estimator_name, random_state
-df_union = df_union.sort_values(by=['dataset', 'estimator_name', 'random_state'])
+df_union = df_union.sort_values(by=['dataset', 'random_state', 'estimator_name'])
 #reseteamos el indice
 df_union = df_union.reset_index(drop=True)
 
