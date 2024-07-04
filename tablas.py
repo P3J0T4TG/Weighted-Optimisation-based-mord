@@ -9,7 +9,8 @@ import matplotlib.pyplot as plt
 # Definir la ruta del archivo y cargar los datos %
 #archivo_xlsx_path = './prepared_results/20240619_193506_Todos.xlsx'
 #archivo_xlsx_path = './prepared_results/20240626_141032_MAE_GridSearch+AMAE_bien.xlsx'
-archivo_xlsx_path = './prepared_results/20240626_154803_CCR_GridSearch+AMAE_bien.xlsx'
+#archivo_xlsx_path = './prepared_results/20240626_154803_CCR_GridSearch+AMAE_bien.xlsx'
+archivo_xlsx_path = './prepared_results/20240628_142700_Todos_GridMZE.xlsx'
 df = pd.read_excel(archivo_xlsx_path)
 
 
@@ -29,7 +30,7 @@ for dataset in datasets_list:
     fila= [dataset]
     for modelo in modelos_list:
         #Generamos la instancia de df_final que tiene la forma (dataset, MAE_modelo1, ...., MAE_modeloN)
-        mae= df[(df['dataset']==dataset) & (df['estimator_name']==modelo)]['MAE'].mean()
+        mae= df[(df['dataset']==dataset) & (df['estimator_name']==modelo)]['MZE:'].mean()
         fila.append(mae)
     df_final.loc[len(df_final)]= fila
 #-------------------------------------------------------------------------------------------------------------------------------------#
@@ -42,7 +43,7 @@ for dataset in datasets_list:
 #print(df_final.to_latex(index=False))
 
 # Guardar la tabla en un nuevo archivo
-df_final.to_csv('./Tabla_comparativa.csv', index=False)
+df_final.to_csv('./Tabla_comparativa_MZE_(GridconMZE).csv', index=False)
 
 # Generar una imagen de la tabla
 # fig, ax = plt.subplots(figsize=(12, 2))  # Ajusta el tamaño según sea necesario

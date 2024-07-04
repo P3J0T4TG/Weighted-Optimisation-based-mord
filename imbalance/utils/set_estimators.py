@@ -17,6 +17,9 @@ ORDINAL_CLASSIFIERS = [
 
 mae=mean_absolute_error
 
+def MZE(y_true, y_pred):
+    return 1 - accuracy_score(y_true, y_pred)
+
 def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
     estimator_name = estimator_name.casefold()
 
@@ -43,7 +46,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
         return GridSearchCV(
             estimator=estimator,
             param_grid=param_grid,
-            scoring=make_scorer(accuracy_score, greater_is_better=True),
+            scoring=make_scorer(MZE, greater_is_better=False),
             n_jobs=n_jobs,
             cv=StratifiedKFold(n_splits=2, shuffle=True, random_state=random_state),
             error_score="raise",
@@ -133,7 +136,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
         return GridSearchCV(
             estimator=estimator,
             param_grid=param_grid,
-            scoring=make_scorer(accuracy_score, greater_is_better=True),
+            scoring=make_scorer(MZE, greater_is_better=False),
             n_jobs=n_jobs,
             cv=StratifiedKFold(n_splits=2, shuffle=True, random_state=random_state),
             error_score="raise",

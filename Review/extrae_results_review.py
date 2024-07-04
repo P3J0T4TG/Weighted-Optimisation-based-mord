@@ -27,7 +27,7 @@ dataset_list=['contact-lenses', 'pasture', 'squash-stored', 'squash-unstored', '
 print("Dataframes cargados correctamente: ", metodos, "\n")
 
 
-#Comprobaciond e donde se guardan los archivos
+#Comprobacion de donde se guardan los archivos
 # Verificar si el directorio existe. Si no, crearlo.
 directorio = "Review/Ordinal/Resumen"
 if not os.path.exists(directorio):
@@ -52,6 +52,20 @@ df_final_list=[]
 
 for df, metodo in zip(df_list, metodos):
     print("Procesando: ", metodo, "...\n")
+    """
+    Se ha colado la primera columna de los df como el indice luego hay que arreglar esto:
+    """
+    df.reset_index(inplace=True)
+    #corremos el encabezado una posicion a la izquierda
+    encabezados=list(df.columns)
+    #eliminamos el primer elemento
+    encabezados.pop(0)
+    #eliminamos ultima columna de df
+    df.drop(df.columns[len(df.columns)-1], axis=1, inplace=True)
+    df.columns=encabezados
+
+
+    
     #Calculamos la media de las metricas de un metodo
     df_mean=df.mean()
     df_final=pd.DataFrame(columns=["Dataset", "MZE", "MAE", "Time"])
