@@ -1,6 +1,7 @@
 # Framework de Regresión Ordinal
 
 Este framework proporciona herramientas para realizar experimentos de regresión ordinal, incluyendo la implementación de varios métodos, la extracción y comparación de resultados, y la discretización de datasets de regresión.
+**Este framework usa como base el Framework MORD (https://github.com/fabianp/mord)**
 
 ## Contenido
 
@@ -33,7 +34,7 @@ Se ha añadido al framework los resultados del estudio realizado con el mismo, a
 # Ordinal Regression Framework
 
 This framework provides tools for conducting ordinal regression experiments, including the implementation of various methods, extraction and comparison of results, and discretization of regression datasets.
-
+**This framework is based on the MORD Framework (https://github.com/fabianp/mord).**
 ## Contents
 
 - [Installation](#installation)
