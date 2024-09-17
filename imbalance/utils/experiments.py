@@ -1,4 +1,9 @@
 # -*- coding: utf-8 -*-
+"""
+Archivo con funciones para correr experimentos de clasificación.
+
+NO MODIFICAR ESTE ARCHIVO
+"""
 import time
 from pathlib import Path
 
@@ -146,7 +151,7 @@ def compute_metrics(targets, predictions):
         "MAE": mean_absolute_error(targets, predictions),
         "1-off": accuracy_off1(targets, predictions),
         "CCR": accuracy_score(targets, predictions),
-        "MZE:": 1 - accuracy_score(targets, predictions),
+        "MZE": 1 - accuracy_score(targets, predictions),
         "MS": minimum_sensitivity(targets, predictions),
         "BalancedAccuracy": balanced_accuracy_score(targets, predictions),
         "AMAE": amae(targets, predictions),

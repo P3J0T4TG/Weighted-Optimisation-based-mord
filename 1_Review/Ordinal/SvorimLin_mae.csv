@@ -1,0 +1,17 @@
+Dataset,SvorimLin
+ERA,1.222 ± 0.036
+ESL,0.308 ± 0.035
+LEV,0.414 ± 0.032
+SWD,0.451 ± 0.03
+automobile,0.474 ± 0.09
+balance-scale,0.107 ± 0.021
+car,0.078 ± 0.01
+contact-lenses,0.461 ± 0.156
+eucalyptus,0.382 ± 0.028
+newthyroid,0.031 ± 0.024
+pasture,0.337 ± 0.115
+squash-stored,0.377 ± 0.138
+squash-unstored,0.318 ± 0.112
+tae,0.548 ± 0.079
+toy,0.96 ± 0.066
+winequality-red,0.439 ± 0.018

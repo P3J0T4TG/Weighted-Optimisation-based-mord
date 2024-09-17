@@ -1,0 +1,17 @@
+Dataset,POM
+ERA,1.218 ± 0.05
+ESL,0.31 ± 0.038
+LEV,0.409 ± 0.03
+SWD,0.45 ± 0.03
+automobile,0.953 ± 0.687
+balance-scale,0.107 ± 0.021
+car,1.451 ± 0.548
+contact-lenses,0.533 ± 0.253
+eucalyptus,1.939 ± 0.254
+newthyroid,0.028 ± 0.022
+pasture,0.585 ± 0.204
+squash-stored,0.813 ± 0.248
+squash-unstored,0.826 ± 0.23
+tae,0.628 ± 0.116
+toy,0.981 ± 0.039
+winequality-red,0.435 ± 0.017

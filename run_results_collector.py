@@ -30,25 +30,35 @@ filter_methods = [
 ]
 #filter_datasets = ["toy"]
 
-filter_datasets = [
-    "automobile", 
-    "balance-scale",
-    "car", 
-    "contact-lenses", 
-    "ERA", 
-    "ESL", 
-    "eucalyptus", 
-    "LEV", 
-    "newthyroid", 
-    "pasture", 
-    "squash-stored", 
-    "squash-unstored", 
-    "SWD", 
-    "tae", 
-    "winequality-red"]
+# filter_datasets = [
+#     "automobile", 
+#     "balance-scale",
+#     "car", 
+#     "contact-lenses", 
+#     "ERA", 
+#     "ESL", 
+#     "eucalyptus", 
+#     "LEV", 
+#     "newthyroid", 
+#     "pasture", 
+#     "squash-stored", 
+#     "squash-unstored", 
+#     "SWD", 
+#     "tae",
+#     'toy',
+#     "winequality-red"]
 
-
-
+filter_datasets= [
+'pyrim',
+'auto',
+'triazines',
+'abalone',
+'housing',
+'wpbc',
+'diabetes',
+'stock',
+'machine'
+]
 def filter_fn(result):
     if (
         len(filter_methods) > 0

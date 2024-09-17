@@ -1,29 +1,58 @@
-# 26-06-2024
-- *Tablas.py* Añadido script para extraer las tablas comparativas de los metodos a partir de los resultados
-- Añadidas las tablas extraidas de los resultados
-- Métrica *AMAE* modificada para evitar el error de dividir por cero (se ha añadido al denominador un $\epsilon = 10^{⁻3}$)
-- Añadido script que extrae los datos de los resultados del review
-- Añadidos csv con MAE, MZE y Time del review (tablas de review: [Ordinal regression methods: survey and experimental study](http://dx.doi.org/10.1109/TKDE.2015.2457911) para compararlas con las generadas)
+# Framework de Regresión Ordinal
 
-**Proximos arreglos**
-- Falta unir las tablas para ponerlas bonicas
-- Añadir Script para discretizar datasets de regresión (variable respuesta continua -> discreta)
-- Aplicar la discretización a los datasets
-- Realizar experimentos para estos
-- Extraer resultados y tablas de estos y compararlos con los del review
+Este framework proporciona herramientas para realizar experimentos de regresión ordinal, incluyendo la implementación de varios métodos, la extracción y comparación de resultados, y la discretización de datasets de regresión.
 
-# 19-06-2024
+## Contenido
 
-- Metodo logisticit_desb y logisticat_desb implementados (de dos formas distintas, pero se obtienen los mismos resultados, mas o menos tardan lo mismo en ejecutarse)
-- Se han realizado los experimentos con todos los dataset y se han recopilado los resultados
-	- ..._Desbalanceados.xlsx solo los resultados de los nuevos metodos
-	- ..._Todos.xlsx con todos los resultados  de todos los métodos
-- Los nuevos metodos heredan los errores de los originales (algunos fallos al calcular la metrica amaes, convergencia debil al usar lbfgs
+- [Instalación](#instalación)
+- [Uso](#uso)
+- [Resultados](#resultados)
 
-# 15-04-2024 
+## Instalación
 
-- He lanzado todos los experimentos con todos los resamples de todos los dataset menos bondrate
-- En el archivo list_dataset_v2.txt está toda la información relativa a los errores y warnings que me han ido surgiendo durante los lanzamientos
-- Quizas el mayor de los problemas se tiene con el dataset bondrate que da unos errores raros con la libreria de sklearn y joblib, además de predecir mal las etiquetas (estará todo enlazado)
+Para instalar las dependencias necesarias, ejecuta:
+
+```bash
+pip install -r requirements.txt 
+```
+
+## Uso
+
+* **lanzador.py**: Este Script lanza una bateria de experimentos basandose en __run_experiment.py__.
+* **run_results_collector.py**: Este Script recopila todos los resultados de los experimentos lanzados previamente.
+* **3_Resources**: En esta carpeta se encuentran distintos scripts y cuadernos de Jupyter muy utiles para extraer tablas y datos de los resultados asi como preparar los datasets para su uso con este framework.
+
+## Resultados
+
+Se ha añadido al framework los resultados del estudio realizado con el mismo, así como los datasets utilizados y los documentos/articulos generados durante el proceso. 
 
 
+
+
+
+# Ordinal Regression Framework
+
+This framework provides tools for conducting ordinal regression experiments, including the implementation of various methods, extraction and comparison of results, and discretization of regression datasets.
+
+## Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Results](#results)
+
+## Installation
+
+To install the necessary dependencies, run:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+* **lanzador.py**: This script launches a battery of experiments based on run_experiment.py.
+* **run_results_collector.py**: This script collects all the results from previously launched experiments.
+* **3_Resources**: This folder contains various scripts and Jupyter notebooks that are very useful for extracting tables and data from the results, as well as preparing datasets for use with this framework.
+
+## Results
+The framework includes the results of the study conducted with it, as well as the datasets used and the documents/articles generated during the process.

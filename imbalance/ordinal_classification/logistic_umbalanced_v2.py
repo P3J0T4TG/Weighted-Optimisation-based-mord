@@ -1,6 +1,6 @@
 """
 Modificar en este archivo la implementación de las clases desbalanceadas.
-Una vez implementados los métodos, añadir dichas funciones al archivo correspondiente del paquete mord
+Una vez implementados los métodos, añadir dichas funciones a set_estimators.py
 """
 
 import numpy as np
@@ -347,6 +347,7 @@ class LogisticIT_desb_v2(base.BaseEstimator):
             self.alpha,
             self.n_class_,
             mode="0-1",
+            #mode="SE",
             verbose=self.verbose,
             max_iter=self.max_iter,
             sample_weight=self.sample_weight,

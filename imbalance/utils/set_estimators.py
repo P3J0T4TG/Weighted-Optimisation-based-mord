@@ -1,3 +1,11 @@
+"""
+Script que configura los estimadores y sus hiperparámetros para el lanzamiento de experimentos.
+
+MODIFICAR ESTE ARCHIVO SÍ:
+    * Se han añadido nuevos estimadores
+    * Se han añadido nuevos hiperparámetros
+    * Se quiere modificar la configuracion del GridSearchCV
+"""
 from sklearn.metrics import make_scorer, mean_absolute_error, accuracy_score
 from sklearn.model_selection import GridSearchCV, StratifiedKFold
 from imbalance.metrics import amae
@@ -9,8 +17,6 @@ NOMINAL_CLASSIFIERS = [
 ORDINAL_CLASSIFIERS = [
     "logisticat",
     "logisticit",
-    #"logisticat_desb",  
-    #"logisticit_desb",
     "logisticat_desb_v2",  
     "logisticit_desb_v2",  
 ]
@@ -46,7 +52,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
         return GridSearchCV(
             estimator=estimator,
             param_grid=param_grid,
-            scoring=make_scorer(MZE, greater_is_better=False),
+            scoring=make_scorer(mae, greater_is_better=False),
             n_jobs=n_jobs,
             cv=StratifiedKFold(n_splits=2, shuffle=True, random_state=random_state),
             error_score="raise",
@@ -57,6 +63,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
 
         if estimator_name == "logisticat":
             from mord import LogisticAT
+            #from imbalance.ordinal_classification.threshold_based_David import LogisticAT
 
             param_grid = [
                 {
@@ -69,6 +76,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
 
         elif estimator_name == "logisticit":
             from mord import LogisticIT
+            #from imbalance.ordinal_classification.threshold_based_David import LogisticIT
 
             param_grid = [
                 {
@@ -136,7 +144,7 @@ def set_estimator(estimator_name, random_state, n_jobs=-1, **kwargs):
         return GridSearchCV(
             estimator=estimator,
             param_grid=param_grid,
-            scoring=make_scorer(MZE, greater_is_better=False),
+            scoring=make_scorer(mae, greater_is_better=False),
             n_jobs=n_jobs,
             cv=StratifiedKFold(n_splits=2, shuffle=True, random_state=random_state),
             error_score="raise",
